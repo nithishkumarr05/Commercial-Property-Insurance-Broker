@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>404 | Page Not Found — SecureBiz Commercial Property Insurance</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Cpath d='M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z' stroke='%23E5B83C' stroke-width='6' fill='%23E5B83C' fill-opacity='0.15'/%3E%3Cpath d='M38 68 V44 H62 V68' stroke='%23E5B83C' stroke-width='4'/%3E%3Cpath d='M50 30 L64 42 H36 Z' fill='%23E5B83C'/%3E%3C/svg%3E" />
+    <meta name="description" content="Oops! This page could not be found. Return to SecureBiz for expert commercial property insurance brokerage.">
+
+    <!-- Tailwind CSS + Fonts -->
+        <script src="tailwind.js"></script>
+
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <style>
+    html, body { overflow-x: hidden; max-width: 100%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #1A1614;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 22, 20, 0.95) 0%, rgba(42, 36, 32, 0.94) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .error-card {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(4px);
+            border-radius: clamp(24px, 4vw, 40px);
+            padding: clamp(20px, 4vh, 48px) clamp(16px, 4vw, 36px);
+            text-align: center;
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(229, 184, 60, 0.25);
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Dark mode support */
+        .dark .error-card {
+            background: rgba(42, 36, 32, 0.96);
+            border-color: rgba(229, 184, 60, 0.35);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.22; }
+            90% { opacity: 0.22; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+        .code-404 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(60px, 15vh, 130px);
+            font-weight: 800;
+            background: linear-gradient(135deg, #1E1A17 0%, #E5B83C 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            letter-spacing: -4px;
+            font-style: italic;
+        }
+
+        .dark .code-404 {
+            background: linear-gradient(135deg, #E5B83C 0%, #FDF3D6 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .main-icon {
+            font-size: clamp(40px, 8vh, 70px);
+            display: inline-block;
+            animation: floatIcon 3s ease-in-out infinite;
+            color: #E5B83C;
+        }
+
+        .dark .main-icon { color: #FDF3D6; }
+
+        .title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(18px, 4vh, 28px);
+            font-weight: 700;
+            color: #1E1A17;
+            margin-top: clamp(8px, 2vh, 16px);
+            margin-bottom: clamp(6px, 1.5vh, 12px);
+        }
+
+        .dark .title { color: #EDE6E0; }
+
+        .message {
+            color: #3D352E;
+            font-size: clamp(12px, 2vh, 15px);
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto clamp(12px, 3vh, 28px) auto;
+        }
+
+        .dark .message { color: #CEC3BA; }
+
+        .button-group {
+            display: flex;
+            gap: clamp(8px, 2vw, 14px);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: clamp(12px, 3vh, 32px);
+        }
+
+        .btn-primary {
+            background: #1E1A17;
+            color: #FFFFFF;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(30, 26, 23, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #3D352E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(229, 184, 60, 0.4);
+        }
+
+        .dark .btn-primary {
+            background: #E5B83C;
+            color: #1A1614;
+            box-shadow: 0 4px 12px rgba(229, 184, 60, 0.25);
+        }
+
+        .dark .btn-primary:hover {
+            background: #FDF3D6;
+            color: #1A1614;
+            box-shadow: 0 8px 20px rgba(253, 243, 214, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #C99E2E;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid #C99E2E;
+            transition: all 0.25s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #C99E2E;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .dark .btn-secondary {
+            color: #FDF3D6;
+            border-color: #FDF3D6;
+        }
+
+        .dark .btn-secondary:hover {
+            background: #FDF3D6;
+            color: #1A1614;
+        }
+
+        .suggestion-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(10px, 2vw, 20px);
+            margin-top: clamp(12px, 2vh, 20px);
+            padding-top: clamp(12px, 2vh, 20px);
+            border-top: 1px solid rgba(229, 184, 60, 0.18);
+        }
+
+        .dark .suggestion-links {
+            border-top-color: rgba(229, 184, 60, 0.25);
+        }
+
+        .suggestion-links a {
+            color: #C99E2E;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: color 0.2s;
+        }
+
+        .suggestion-links a:hover {
+            color: #1E1A17;
+            text-decoration: underline;
+        }
+
+        .dark .suggestion-links a { color: #FDF3D6; }
+        .dark .suggestion-links a:hover { color: #FFFFFF; text-decoration: underline; }
+
+        /* Floating elements */
+        .floating-element {
+            position: fixed;
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp 14s infinite linear;
+            opacity: 0;
+            color: rgba(229, 184, 60, 0.3);
+        }
+
+        .star-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: starTwinkle 2.4s ease-in-out infinite;
+            color: rgba(253, 243, 214, 0.4);
+            font-size: 14px;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .btn-primary i,
+        [dir="rtl"] .btn-secondary i {
+            transform: scaleX(-1);
+        }
+
+        /* Responsive */
+        @media (max-width: 550px) {
+            .btn-primary, .btn-secondary { padding: 10px 18px; font-size: 10px; }
+            .suggestion-links a { font-size: 9.5px; }
+        }
+
+        @media (max-width: 400px) {
+            .btn-primary, .btn-secondary { padding: 8px 16px; font-size: 9px; }
+        }
+
+        @media (max-height: 600px) {
+            .main-icon { display: none; }
+            .message { display: none; }
+            .code-404 { font-size: clamp(50px, 12vh, 90px); }
+        }
+
+        @media (max-height: 480px) {
+            .error-card { padding: 12px 16px; border-radius: 20px; }
+            .code-404 { font-size: 60px; }
+            .title { font-size: 16px; margin-top: 4px; }
+            .button-group { margin-bottom: 8px; }
+            .suggestion-links { margin-top: 8px; padding-top: 8px; }
+        }
+
+        .search-hint {
+            margin-top: clamp(10px, 2vh, 20px);
+            font-size: clamp(9px, 2vh, 11px);
+            color: #3D352E;
+        }
+
+        .dark .search-hint { color: #CEC3BA; }
+
+        .search-hint a {
+            color: #C99E2E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .dark .search-hint a { color: #FDF3D6; }
+        .search-hint a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating decorative elements (insurance icons) -->
+    <div class="floating-element" style="left: 5%; animation-duration: 14s; animation-delay: 0s;"><i class="fas fa-shield-alt"></i></div>
+    <div class="floating-element" style="left: 15%; animation-duration: 18s; animation-delay: 2s;"><i class="fas fa-building"></i></div>
+    <div class="floating-element" style="left: 30%; animation-duration: 16s; animation-delay: 4s;"><i class="fas fa-file-contract"></i></div>
+    <div class="floating-element" style="left: 55%; animation-duration: 20s; animation-delay: 1s;"><i class="fas fa-handshake"></i></div>
+    <div class="floating-element" style="left: 70%; animation-duration: 15s; animation-delay: 3s;"><i class="fas fa-clipboard-check"></i></div>
+    <div class="floating-element" style="left: 85%; animation-duration: 22s; animation-delay: 5s;"><i class="fas fa-user-shield"></i></div>
+    <div class="floating-element" style="left: 92%; animation-duration: 17s; animation-delay: 2s;"><i class="fas fa-file-shield"></i></div>
+    <div class="floating-element" style="left: 42%; animation-duration: 19s; animation-delay: 6s;"><i class="fas fa-building-shield"></i></div>
+
+    <!-- Twinkling stars -->
+    <div class="star-element" style="top: 8%; left: 8%; animation-delay: 0.5s;"><i class="fas fa-star"></i></div>
+    <div class="star-element" style="top: 15%; right: 12%; animation-delay: 1.2s;"><i class="fas fa-star"></i></div>
+    <div class="star-element" style="top: 70%; left: 20%; animation-delay: 0.8s;"><i class="fas fa-star"></i></div>
+    <div class="star-element" style="bottom: 20%; right: 25%; animation-delay: 1.8s;"><i class="fas fa-star"></i></div>
+    <div class="star-element" style="top: 45%; right: 8%; animation-delay: 0.3s;"><i class="fas fa-star"></i></div>
+    <div class="star-element" style="bottom: 35%; left: 10%; animation-delay: 2.0s;"><i class="fas fa-star"></i></div>
+
+    <div class="error-container">
+        <div class="error-card animate-fade-up">
+            <!-- Brand mark -->
+            <div class="flex justify-center mb-6 w-full">
+                <a href="index.html" class="flex items-center gap-3 group" style="text-decoration: none;">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-500" style="background:linear-gradient(135deg,#E5B83C,#C99E2E);">
+                        <svg class="w-5 h-5 md:w-6 md:h-6 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z" stroke="currentColor" stroke-width="5" fill="currentColor" fill-opacity="0.15"/>
+                            <path d="M38 68 V44 H62 V68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M44 50 H46 M54 50 H56 M44 58 H46 M54 58 H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 30 L64 42 H36 Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#E5B83C]" style="font-family: 'Playfair Display', Georgia, serif;">Secure<span class="text-[#1E1A17] dark:text-white">Biz</span></span>
+                        <span class="text-[8px] tracking-[0.25em] uppercase font-semibold -mt-1 text-gray-500 dark:text-gray-400">Property Insurance</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Animated Main Icon -->
+            <div class="main-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+
+            <!-- 404 Code -->
+            <div class="code-404">
+                404
+            </div>
+
+            <!-- Error Title -->
+            <h1 class="title">
+                This Page Has Gone Missing
+            </h1>
+
+            <!-- Error Message -->
+            <p class="message">
+                The page you're looking for may have been moved, renamed, or is temporarily unavailable. Let's get you back to the resources, quotes, and coverage details that protect your business.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="contact.html" class="btn-secondary">
+                    <i class="fas fa-headset"></i> Contact Us
+                </a>
+            </div>
+
+            <!-- Helpful Quick Links -->
+            <div class="suggestion-links">
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="claims.html">Claims Help</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+
+            <!-- Search hint -->
+            <div class="search-hint">
+                <i class="fas fa-search"></i> Need help finding something? <a href="contact.html">Reach out to our team</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Check for saved RTL preference
+            const savedDir = localStorage.getItem('dir') || localStorage.getItem('language');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            }
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'h' || e.key === 'H') window.location.href = 'index.html';
+                if (e.key === 'c' || e.key === 'C') window.location.href = 'contact.html';
+                if (e.key === 'a' || e.key === 'A') window.location.href = 'about.html';
+                if (e.key === 's' || e.key === 'S') window.location.href = 'services.html';
+                if (e.key === 'l' || e.key === 'L') window.location.href = 'claims.html';
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, viewport-fit=cover">
+    <title>Sign Up · SecureBiz — Commercial Property Insurance Broker</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Cpath d='M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z' stroke='%23E5B83C' stroke-width='6' fill='%23E5B83C' fill-opacity='0.15'/%3E%3Cpath d='M38 68 V44 H62 V68' stroke='%23E5B83C' stroke-width='4'/%3E%3Cpath d='M50 30 L64 42 H36 Z' fill='%23E5B83C'/%3E%3C/svg%3E" />
+
+    <!-- Tailwind CSS -->
+        <script src="tailwind.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#1E1A17',
+                            secondary: '#3D352E',
+                            muted: '#7A6E64',
+                            border: '#E5D9D0',
+                            accent: '#E5B83C',
+                            'accent-dark': '#C99E2E',
+                            'accent-light': '#FDF3D6',
+                            bg: '#FCF8F5',
+                            'bg-soft': '#F8F0EB',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.4s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(12px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+    html, body { overflow-x: hidden; max-width: 100%; }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #FCF8F5;
+            color: #1E1A17;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-family: 'Inter', system-ui, sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            background-image: radial-gradient(circle at 20% 30%, rgba(229,184,60,0.08) 0%, transparent 60%);
+        }
+
+        .dark body {
+            background-color: #1A1614;
+            color: #EDE6E0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(229,184,60,0.06) 0%, transparent 60%);
+        }
+
+        .dark .text-brand-primary { color: #EDE6E0; }
+        .dark input, .dark select, .dark textarea { color: #FFFFFF !important; }
+
+        /* Theme toggles — top-right */
+        .theme-toggle-wrapper {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+        }
+
+        [dir="rtl"] .theme-toggle-wrapper {
+            right: auto;
+            left: 16px;
+        }
+
+        .toggle-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(229,184,60,0.12);
+            color: #C99E2E;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(229,184,60,0.25);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .dark .toggle-btn {
+            background: rgba(253,243,214,0.12);
+            color: #FDF3D6;
+            border-color: rgba(253,243,214,0.2);
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.08);
+            background: #E5B83C;
+            color: #1E1A17;
+        }
+
+        .dark .toggle-btn:hover {
+            background: #FDF3D6;
+            color: #1A1614;
+        }
+
+        /* Signup Card */
+        .signup-card {
+            background: #FFFFFF;
+            border-radius: 36px;
+            padding: 1.8rem 2rem 1.8rem;
+            box-shadow: 0 25px 50px rgba(229,184,60,0.12);
+            border: 1px solid rgba(229,184,60,0.2);
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        .dark .signup-card {
+            background: #2A2420;
+            border-color: rgba(253,243,214,0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Input styling */
+        .signup-input {
+            width: 100%;
+            padding: 0.8rem 1.2rem 0.8rem 3rem;
+            border-radius: 50px;
+            border: 1.5px solid rgba(229,184,60,0.2);
+            background: #FFFFFF;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            color: #1E1A17;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .dark .signup-input {
+            background: #1A1614;
+            border-color: rgba(253,243,214,0.2);
+            color: #EDE6E0;
+        }
+
+        .signup-input:focus {
+            outline: none;
+            border-color: #E5B83C;
+            box-shadow: 0 0 0 4px rgba(229,184,60,0.18);
+        }
+
+        .dark .signup-input:focus {
+            border-color: #FDF3D6;
+            box-shadow: 0 0 0 4px rgba(253,243,214,0.12);
+        }
+
+        .signup-input::placeholder {
+            color: rgba(30,26,23,0.4);
+        }
+        .dark .signup-input::placeholder {
+            color: rgba(237,230,224,0.35);
+        }
+
+        /* Password wrapper */
+        .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-wrapper .signup-input {
+            padding-right: 3rem;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #C99E2E;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            background: transparent;
+            border: none;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark .toggle-password {
+            color: #FDF3D6;
+        }
+
+        .toggle-password:hover {
+            color: #E5B83C;
+        }
+
+        [dir="rtl"] .toggle-password {
+            right: auto;
+            left: 1rem;
+        }
+
+        [dir="rtl"] .password-wrapper .signup-input {
+            padding-right: 1.2rem;
+            padding-left: 3rem;
+        }
+
+        [dir="rtl"] .input-icon {
+            left: auto;
+            right: 1.1rem;
+        }
+
+        /* Primary button */
+        .btn-gold {
+            background: linear-gradient(135deg, #F0D07A 0%, #E5B83C 100%);
+            color: #1E1A17;
+            font-weight: 700;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 15px rgba(229,184,60,0.35);
+        }
+
+        .dark .btn-gold {
+            background: linear-gradient(135deg, #FDF3D6 0%, #E5B83C 100%);
+            color: #1A1614;
+            box-shadow: 0 4px 15px rgba(253,243,214,0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(229,184,60,0.45);
+        }
+
+        .dark .btn-gold:hover {
+            box-shadow: 0 10px 25px rgba(253,243,214,0.4);
+        }
+
+        /* Social login buttons */
+        .social-btn {
+            flex: 1;
+            padding: 0.7rem 0.5rem;
+            border-radius: 50px;
+            border: 1.5px solid rgba(229,184,60,0.2);
+            background: #FFFFFF;
+            color: #1E1A17;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            gap: 0.5rem;
+            white-space: nowrap;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .dark .social-btn {
+            background: #1A1614;
+            border-color: rgba(253,243,214,0.2);
+            color: #EDE6E0;
+        }
+
+        .social-btn:hover {
+            background: #FCF8F5;
+            border-color: #E5B83C;
+            transform: translateY(-2px);
+        }
+
+        .dark .social-btn:hover {
+            background: rgba(253,243,214,0.08);
+            border-color: #FDF3D6;
+        }
+
+        .social-btn i {
+            font-size: 1.1rem;
+            color: #C99E2E;
+        }
+
+        .dark .social-btn i {
+            color: #FDF3D6;
+        }
+
+        /* Logo container */
+        .logo-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #1E1A17;
+            margin-top: 1.25rem;
+            margin-bottom: 0.1rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .dark .welcome-title {
+            color: #EDE6E0;
+        }
+
+        .welcome-subtitle {
+            font-size: 0.85rem;
+            color: #3D352E;
+            text-align: center;
+            margin-bottom: 0.25rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .dark .welcome-subtitle {
+            color: #CEC3BA;
+        }
+
+        /* Role selector */
+        .role-selector {
+            display: flex;
+            gap: 0.4rem;
+            background: rgba(229,184,60,0.08);
+            border-radius: 50px;
+            padding: 0.2rem;
+            border: 1px solid rgba(229,184,60,0.15);
+            margin-bottom: 0.8rem;
+        }
+
+        .dark .role-selector {
+            background: rgba(253,243,214,0.08);
+            border-color: rgba(253,243,214,0.15);
+        }
+
+        .role-btn {
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: #3D352E;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            flex: 1;
+        }
+
+        .dark .role-btn {
+            color: #CEC3BA;
+        }
+
+        .role-btn.active {
+            background: #E5B83C;
+            color: #1E1A17;
+            box-shadow: 0 4px 12px rgba(229,184,60,0.3);
+        }
+
+        .dark .role-btn.active {
+            background: #FDF3D6;
+            color: #1A1614;
+        }
+
+        .role-btn:hover:not(.active) {
+            background: rgba(229,184,60,0.1);
+        }
+
+        .dark .role-btn:hover:not(.active) {
+            background: rgba(253,243,214,0.1);
+        }
+
+        /* Terms text */
+        .terms-text {
+            font-size: 0.7rem;
+            color: #3D352E;
+        }
+
+        .dark .terms-text {
+            color: #CEC3BA;
+        }
+
+        .terms-link {
+            color: #C99E2E;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .dark .terms-link {
+            color: #FDF3D6;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+            color: #E5B83C;
+        }
+
+        .dark .terms-link:hover {
+            color: #F0D07A;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1rem 0 0.8rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(229,184,60,0.2);
+        }
+
+        .dark .divider::before,
+        .dark .divider::after {
+            border-bottom-color: rgba(253,243,214,0.2);
+        }
+
+        .divider span {
+            font-size: 0.7rem;
+            padding: 0 0.8rem;
+            color: #3D352E;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+
+        .dark .divider span {
+            color: #CEC3BA;
+        }
+
+        .custom-checkbox {
+            accent-color: #E5B83C;
+        }
+
+        .dark .custom-checkbox {
+            accent-color: #FDF3D6;
+        }
+
+        a {
+            transition: all 0.2s ease;
+        }
+
+        /* Background decorative glow */
+        .bg-glow {
+            position: fixed;
+            top: -30%;
+            right: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(229,184,60,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .dark .bg-glow {
+            background: radial-gradient(circle, rgba(253,243,214,0.04) 0%, transparent 70%);
+        }
+
+        .bg-glow-left {
+            position: fixed;
+            bottom: -30%;
+            left: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(229,184,60,0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .dark .bg-glow-left {
+            background: radial-gradient(circle, rgba(253,243,214,0.03) 0%, transparent 70%);
+        }
+
+        .container-tight {
+            max-width: 480px;
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-height: 650px) {
+            .signup-card { padding: 0.8rem 1.5rem; transform: scale(0.94); transform-origin: center; }
+            .logo-center { margin-bottom: 0.3rem; }
+            .welcome-title { font-size: 1.2rem; margin-top: 0.25rem; }
+            .welcome-subtitle { font-size: 0.75rem; margin-bottom: 0.15rem; }
+            .signup-input { padding: 0.5rem 0.8rem 0.5rem 2.5rem; font-size: 0.8rem; }
+            .btn-gold { padding: 0.5rem 1rem; font-size: 0.85rem; }
+            .theme-toggle-wrapper { top: 8px; right: 8px; }
+            .toggle-btn { width: 34px; height: 34px; font-size: 0.8rem; }
+            .divider { margin: 0.6rem 0; }
+            .social-btn { padding: 0.4rem 0.5rem; font-size: 0.75rem; }
+            .role-selector { margin-bottom: 0.4rem; }
+            .role-btn { padding: 0.2rem 0.6rem; font-size: 0.65rem; }
+        }
+
+        @media (max-width: 380px) {
+            .signup-card { padding: 1.2rem 1.2rem; border-radius: 24px; }
+            .welcome-title { font-size: 1.2rem; }
+            .signup-input { padding: 0.6rem 0.8rem 0.6rem 2.6rem; font-size: 0.8rem; }
+            .social-btn { padding: 0.4rem 0.3rem; font-size: 0.75rem; gap: 0.3rem; }
+            .social-btn i { font-size: 0.9rem; }
+        }
+
+        @media (max-width: 480px) {
+            .theme-toggle-wrapper { top: 12px; right: 12px; }
+            [dir="rtl"] .theme-toggle-wrapper { left: 12px; right: auto; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Glows -->
+    <div class="bg-glow"></div>
+    <div class="bg-glow-left"></div>
+
+    <!-- ===== THEME TOGGLES - TOP-RIGHT ===== -->
+    <div class="theme-toggle-wrapper">
+        <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:inline"></i>
+        </button>
+        <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">
+            <i class="fas fa-exchange-alt"></i>
+        </button>
+    </div>
+
+    <!-- ===== SIGNUP CARD ===== -->
+    <div class="container-tight relative z-10">
+        <div class="signup-card animate-fade-in">
+
+            <!-- ===== LOGO - CENTERED ===== -->
+            <div class="logo-center">
+                <a href="index.html" class="flex items-center gap-3 group shrink-0 transition-transform duration-200 hover:scale-[1.02] inline-flex">
+                    <svg class="w-11 h-11 text-[#E5B83C] drop-shadow-md transition-transform duration-300 group-hover:scale-105 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z" stroke="currentColor" stroke-width="5" fill="currentColor" fill-opacity="0.15"/>
+                        <path d="M38 68 V44 H62 V68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M44 50 H46 M54 50 H56 M44 58 H46 M54 58 H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M50 30 L64 42 H36 Z" fill="currentColor"/>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-2xl font-display font-extrabold tracking-tight text-[#1E1A17] dark:text-white leading-none">
+                            Secure<span class="text-[#E5B83C]">Biz</span>
+                        </span>
+                        <span class="text-[9.5px] font-bold tracking-widest text-[#7A6E64] dark:text-gray-400 uppercase mt-0.5">Property Insurance</span>
+                    </div>
+                </a>
+
+                <h1 class="welcome-title">Create Account</h1>
+                <p class="welcome-subtitle">Start protecting your property assets</p>
+            </div>
+
+            <!-- ===== SIGNUP FORM ===== -->
+            <form id="signupForm" class="space-y-3.5">
+
+                <!-- Full Name -->
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#E5B83C] input-icon">
+                        <i class="fas fa-user w-4 text-sm"></i>
+                    </span>
+                    <input type="text" id="fullName" name="name" placeholder="Full name" required
+                        class="signup-input text-sm md:text-sm">
+                </div>
+
+                <!-- Email -->
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#E5B83C] input-icon">
+                        <i class="fas fa-envelope w-4 text-sm"></i>
+                    </span>
+                    <input type="email" id="email" name="email" placeholder="Work email address" required
+                        class="signup-input text-sm md:text-sm">
+                </div>
+
+                <!-- Password with eye -->
+                <div class="password-wrapper">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#E5B83C] input-icon">
+                        <i class="fas fa-lock w-4 text-sm"></i>
+                    </span>
+                    <input type="password" id="signup-password" name="password" placeholder="Password" required
+                        class="signup-input text-sm md:text-sm">
+                    <button type="button" class="toggle-password" data-target="signup-password"
+                        aria-label="Show password">
+                        <i class="far fa-eye-slash"></i>
+                    </button>
+                </div>
+
+                <!-- Confirm Password with eye -->
+                <div class="password-wrapper">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#E5B83C] input-icon">
+                        <i class="fas fa-lock w-4 text-sm"></i>
+                    </span>
+                    <input type="password" id="signup-confirm-password" name="confirm_password"
+                        placeholder="Confirm password" required class="signup-input text-sm md:text-sm">
+                    <button type="button" class="toggle-password" data-target="signup-confirm-password"
+                        aria-label="Show password">
+                        <i class="far fa-eye-slash"></i>
+                    </button>
+                </div>
+
+                <!-- Terms -->
+                <div class="flex items-start space-x-2 rtl:space-x-reverse mt-1">
+                    <input type="checkbox" id="terms"
+                        class="mt-0.5 rounded border-gray-300 dark:border-gray-600 custom-checkbox"
+                        required>
+                    <label for="terms" class="terms-text">
+                        I agree to the <a href="#" class="terms-link" id="termsLink">Terms of Service</a> and
+                        <a href="#" class="terms-link" id="privacyLink">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-gold mt-1">
+                    Create Account <i class="fas fa-user-plus ml-2"></i>
+                </button>
+            </form>
+
+            <!-- ===== Divider + Social ===== -->
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="flex gap-3">
+                <button class="social-btn" id="googleSignupBtn">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn" id="appleSignupBtn">
+                    <i class="fab fa-apple"></i>
+                    <span>Apple</span>
+                </button>
+            </div>
+
+            <!-- ===== LOGIN LINK ===== -->
+            <div class="mt-4 text-center">
+                <span class="text-xs text-[#1E1A17]/60 dark:text-gray-400">Already a SecureBiz client?</span>
+                <a href="login.html"
+                    class="text-xs font-semibold text-[#E5B83C] dark:text-[#FDF3D6] ml-1 rtl:mr-1 hover:underline">
+                    Sign in
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Theme Toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            function setTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                const moon = themeBtn?.querySelector('.fa-moon');
+                const sun = themeBtn?.querySelector('.fa-sun');
+                if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    setTheme(!document.documentElement.classList.contains('dark'));
+                });
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            setTheme(savedTheme === 'dark');
+
+            // 2. RTL Toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+
+            const savedDir = localStorage.getItem('dir');
+            setRTL(savedDir === 'rtl');
+
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    setRTL(document.documentElement.getAttribute('dir') !== 'rtl');
+                });
+            }
+
+            // 3. Password Toggle
+            document.querySelectorAll('.toggle-password').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    if (input) {
+                        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                        input.setAttribute('type', type);
+                        const icon = this.querySelector('i');
+                        if (icon) {
+                            icon.classList.toggle('fa-eye-slash');
+                            icon.classList.toggle('fa-eye');
+                        }
+                    }
+                });
+            });
+
+            // 4. Social signup placeholders
+            document.getElementById('googleSignupBtn').addEventListener('click', function() {
+                alert('Sign up with Google — coming soon. For now, use the demo form.');
+            });
+            document.getElementById('appleSignupBtn').addEventListener('click', function() {
+                alert('Sign up with Apple — coming soon. For now, use the demo form.');
+            });
+
+            // 5. Demo signup — redirect based on role (defaulting to customer)
+            document.getElementById('signupForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = document.getElementById('signup-password').value;
+                const confirm = document.getElementById('signup-confirm-password').value;
+                if (password !== confirm) {
+                    alert('Passwords do not match. Please try again.');
+                    return;
+                }
+                if (!document.getElementById('terms').checked) {
+                    alert('Please agree to the Terms of Service and Privacy Policy.');
+                    return;
+                }
+                // Redirect to customer dashboard
+                window.location.href = 'customer.html';
+            });
+
+            // 6. Terms & Privacy links
+            document.getElementById('termsLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Terms of Service — coming soon.');
+            });
+            document.getElementById('privacyLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Privacy Policy — coming soon.');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us · SecureBiz — Commercial Property Insurance Broker</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Cpath d='M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z' stroke='%23E5B83C' stroke-width='6' fill='%23E5B83C' fill-opacity='0.15'/%3E%3Cpath d='M38 68 V44 H62 V68' stroke='%23E5B83C' stroke-width='4'/%3E%3Cpath d='M50 30 L64 42 H36 Z' fill='%23E5B83C'/%3E%3C/svg%3E" />
+
+    <!-- Tailwind CSS -->
+        <script src="tailwind.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontWeight: { bold: '600', extrabold: '700', semibold: '550' },
+                    colors: {
+                        brand: {
+                            primary: '#1E1A17',
+                            secondary: '#3D352E',
+                            muted: '#7A6E64',
+                            border: '#E5D9D0',
+                            accent: '#E5B83C',
+                            'accent-dark': '#C99E2E',
+                            'accent-light': '#FDF3D6',
+                            bg: '#FCF8F5',
+                            'bg-soft': '#F8F0EB',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+    html, body { overflow-x: hidden; max-width: 100%; }
+        body { background-color: #FCF8F5; color: #1E1A17; font-family: 'Inter', system-ui, sans-serif; }
+        .dark body { background-color: #1A1614; color: #F8F0EB; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
+        
+        /* Enhanced contrast overrides */
+        html:not(.dark) .text-brand-muted { color: #3D352E !important; }
+        html:not(.dark) .text-brand-secondary { color: #1E1A17 !important; }
+        html:not(.dark) .card-design p { color: #3D352E; }
+
+        .nav-link { position: relative; font-weight: 500; color: #1E1A17; transition: color 0.3s; }
+        .dark .nav-link { color: #F8F0EB; }
+        .nav-link:hover { color: #E5B83C; }
+        .nav-link.active { color: #E5B83C !important; }
+        
+        .dropdown-design { position: relative; }
+        .dropdown-design-menu {
+            position: absolute; top: 100%; left: 0; min-width: 200px; background: #FFFFFF;
+            border-radius: 18px; padding: 0.5rem 0; box-shadow: 0 18px 32px rgba(0,0,0,0.06);
+            opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.25s ease;
+            z-index: 1000; border: 1px solid #E5D9D0;
+        }
+        .dark .dropdown-design-menu { background: #2A2420; border-color: #3D352E; }
+        .dropdown-design:hover .dropdown-design-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item {
+            display: flex; align-items: center; padding: 0.6rem 1.4rem; transition: all 0.2s;
+            color: #1E1A17;
+        }
+        .dark .dropdown-item { color: #F8F0EB; }
+        .dropdown-item:hover { background-color: #F8F0EB; color: #1E1A17; padding-left: 1.7rem; }
+        .dropdown-item i { margin-right: 0.75rem; width: 20px; }
+        
+        .mobile-menu-design {
+            background: #FFFFFF; max-height: 0; overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+        .dark .mobile-menu-design { background: #2A2420; }
+        .mobile-menu-design.open { max-height: 80vh; overflow-y: auto; scrollbar-width: none; }
+        .mobile-menu-design.open::-webkit-scrollbar { display: none; }
+
+        .social-icon-design {
+            width: 38px; height: 38px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background-color: #F8F0EB; color: #1E1A17; transition: all 0.3s;
+        }
+        .social-icon-design:hover { background-color: #E5B83C; color: #1E1A17; transform: translateY(-3px); }
+        .dark .social-icon-design { background-color: #2A2420; color: #F8F0EB; }
+        .dark .social-icon-design:hover { background-color: #E5B83C; color: #1E1A17; }
+
+        .card-design {
+            background: #FFFFFF; border-radius: 28px; transition: all 0.3s ease;
+            border: 1px solid #E5D9D0; box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .dark .card-design { background: #2A2420; border-color: #3D352E; }
+        .card-design:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -8px rgba(229,184,60,0.2);
+            border-color: #E5B83C;
+        }
+        
+        .btn-primary-design {
+            background-color: #1E1A17; color: #FCF8F5; font-weight: 600;
+            border-radius: 60px; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .btn-primary-design:hover {
+            background-color: #3D352E; transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(229,184,60,0.3); color: #FCF8F5;
+        }
+        .dark .btn-primary-design { background-color: #FCF8F5; color: #1E1A17; }
+        .dark .btn-primary-design:hover { background-color: #FDF3D6; color: #1E1A17; }
+        
+        .btn-outline-design {
+            border: 1.5px solid #1E1A17; color: #1E1A17; background: transparent;
+            border-radius: 60px; font-weight: 500; transition: all 0.3s;
+        }
+        .btn-outline-design:hover { background-color: #1E1A17; color: #FCF8F5; transform: translateY(-2px); }
+        .dark .btn-outline-design { border-color: #F8F0EB; color: #F8F0EB; }
+        .dark .btn-outline-design:hover { background-color: #F8F0EB; color: #1E1A17; }
+
+        .floating-particle { position: fixed; pointer-events: none; z-index: 0; opacity: 0.1; font-size: 24px; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @media (max-width: 768px) { .floating-particle { display: none; } }
+
+        .img-frame { border-radius: 2rem; overflow: hidden; box-shadow: 0 25px 50px -20px rgba(15,23,42,0.3); }
+        .img-frame img { transition: transform 0.7s ease; width: 100%; height: 100%; object-fit: cover; }
+        .img-frame:hover img { transform: scale(1.03); }
+    </style>
+</head>
+
+<body class="antialiased warm-pattern">
+
+    <!-- Floating particles -->
+    <div class="floating-particle left-[5%] top-[15%]">🛡️</div>
+    <div class="floating-particle right-[8%] top-[25%]" style="animation-delay: 2s;">🏢</div>
+    <div class="floating-particle left-[10%] bottom-[20%]" style="animation-delay: 4s;">🤝</div>
+    <div class="floating-particle right-[12%] bottom-[30%]" style="animation-delay: 3s;">📈</div>
+
+    <!-- ======== NAVIGATION ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#1A1614]/95 backdrop-blur-sm border-b border-[#E5D9D0] dark:border-[#3D352E] shadow-sm">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo -->
+                <a class="flex items-center gap-2 md:gap-3 group shrink-0" href='index.html'>
+                    <svg class="w-9 h-9 md:w-10 md:h-10 text-[#E5B83C] group-hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z" stroke="currentColor" stroke-width="5" fill="currentColor" fill-opacity="0.15"/>
+                        <path d="M38 68 V44 H62 V68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M44 50 H46 M54 50 H56 M44 58 H46 M54 58 H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M50 30 L64 42 H36 Z" fill="currentColor"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-[#1E1A17] dark:text-white leading-tight">Secure<span class="text-[#E5B83C]">Biz</span></span>
+                        <span class="hidden sm:block text-[9px] uppercase tracking-wider font-semibold text-[#7A6E64] dark:text-[#9E8F84]">Property Insurance</span>
+                    </div>
+                </a>
+                <!-- Desktop nav + actions -->
+                <div class="flex items-center gap-3 xl:gap-8 ml-auto rtl:ml-0 rtl:mr-auto">
+                    <div class="hidden xl:flex items-center gap-3 xl:gap-6">
+                        <div class="dropdown-design">
+                            <button class="nav-link font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Home <i class="fas fa-chevron-down text-xs ms-1"></i>
+                            </button>
+                            <div class="dropdown-design-menu">
+                                <a class="dropdown-item font-medium" href="index.html"><i class="fas fa-home text-[#E5B83C]"></i> Home</a>
+                                <a class="dropdown-item font-medium" href="home2.html"><i class="fas fa-home text-[#E5B83C]"></i> Home 2</a>
+                            </div>
+                        </div>
+                        <a class="nav-link active hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="about.html">About</a>
+                        <a class="nav-link hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="services.html">Services</a>
+                        <a class="nav-link hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="claims.html">Claims Help</a>
+                        <a class="nav-link hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="contact.html">Contact</a>
+                        <div class="dropdown-design">
+                            <button class="nav-link font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Dashboard <i class="fas fa-chevron-down text-xs ms-1"></i>
+                            </button>
+                            <div class="dropdown-design-menu">
+                                <a class="dropdown-item font-medium" href="admin.html"><i class="fas fa-user-shield text-[#E5B83C]"></i> Admin</a>
+                                <a class="dropdown-item font-medium" href="customer.html"><i class="fas fa-user text-[#E5B83C]"></i> Customer</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Desktop actions -->
+                    <div class="hidden xl:flex items-center gap-3 ms-2">
+                        <button id="theme-toggle" class="w-10 h-10 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle" class="w-10 h-10 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] hover:scale-110 transition flex items-center justify-center font-bold text-base">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                        <a href="login.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm bg-[#1E1A17] text-[#FCF8F5] hover:bg-[#3D352E] dark:bg-[#E5B83C] dark:text-[#1E1A17] dark:hover:bg-[#C99E2E] shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group whitespace-nowrap">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right text-xs text-[#E5B83C] dark:text-[#1E1A17] transition-transform duration-200 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                    <!-- Mobile toggle -->
+                    <button id="mobile-toggle" class="xl:hidden w-10 h-10 rounded-full bg-[#E5B83C] text-[#1E1A17] flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="mobile-menu-design xl:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition cursor-pointer dark:text-white dark:hover:bg-[#2A2420]">
+                            <span>Home</span><i id="home-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="index.html"><i class="fas fa-home w-6 text-[#E5B83C]"></i> Home</a>
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="home2.html"><i class="fas fa-home w-6 text-[#E5B83C]"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-[#E5B83C] bg-[#F8F0EB] dark:bg-[#2A2420] rounded-xl transition" href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="services.html">Services</a>
+                    <a class="block py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="claims.html">Claims Help</a>
+                    <a class="block py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="contact.html">Contact</a>
+                    <div class="py-1">
+                        <button onclick="document.getElementById('dashboard-mobile-drop').classList.toggle('hidden'); document.getElementById('dashboard-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition cursor-pointer dark:text-white dark:hover:bg-[#2A2420]">
+                            <span>Dashboard</span><i id="dashboard-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="dashboard-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="admin.html"><i class="fas fa-user-shield w-6 text-[#E5B83C]"></i> Admin</a>
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="customer.html"><i class="fas fa-user w-6 text-[#E5B83C]"></i> Customer</a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2.5 pt-5 mt-3 border-t border-[#E5D9D0] dark:border-[#3D352E]">
+                        <a class="inline-flex items-center justify-center gap-2 py-3 px-6 rounded-full font-semibold text-sm bg-[#1E1A17] text-[#FCF8F5] hover:bg-[#3D352E] dark:bg-[#E5B83C] dark:text-[#1E1A17] dark:hover:bg-[#C99E2E] shadow-sm transition-all duration-300 group" href="login.html">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right text-xs text-[#E5B83C] dark:text-[#1E1A17] transition-transform duration-200 group-hover:translate-x-1"></i>
+                        </a>
+                        <div class="flex gap-3 mt-1">
+                            <button id="mobile-theme-toggle" class="flex-1 py-2 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] text-sm font-medium flex items-center gap-2 justify-center"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i> Theme</button>
+                            <button id="mobile-rtl-toggle" class="flex-1 py-2 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] text-sm font-medium flex items-center gap-2 justify-center"><i class="fas fa-exchange-alt"></i> RTL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== HERO — ABOUT SECUREBIZ ======== -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-28 bg-[#1E1A17] overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-45"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1E1A17] via-[#1E1A17]/60 to-[#1E1A17]/40"></div>
+        
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center animate-slide-up">
+            <span class="inline-block bg-[#E5B83C]/20 text-[#E5B83C] px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-[#E5B83C]/30">
+                Our Story
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                About <span class="text-[#E5B83C]">SecureBiz</span>
+            </h1>
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                We are an independent commercial insurance brokerage dedicated exclusively to protecting real estate investments, business assets, and operational continuity across the nation.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======== WHO WE ARE ======== -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#1A1614]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Content -->
+                <div>
+                    <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Who We Are</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-6 leading-tight">
+                        Independent Brokers. <br>
+                        <span class="text-[#3D352E] dark:text-[#CEC3BA]">Unbiased Protection.</span>
+                    </h2>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base leading-relaxed mb-6">
+                        Founded in 2008, SecureBiz was built on a simple premise: commercial property owners deserve an advocate, not a salesperson. As an independent brokerage, we are not tied to any single insurance carrier. This allows us to shop your risk across 40+ A-rated global underwriters to find the most comprehensive coverage at the most competitive premium.
+                    </p>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base leading-relaxed mb-8">
+                        We specialize in complex real estate portfolios—from single-tenant retail centers to multi-state industrial parks. Our team of former underwriters and certified risk managers understands how to structure policies that satisfy strict lender covenants, lease requirements, and board-level risk tolerances.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-[#E5D9D0] dark:border-[#3D352E]">
+                        <div>
+                            <p class="text-3xl font-display font-bold text-[#E5B83C]">$14B+</p>
+                            <p class="text-xs uppercase tracking-wider font-semibold text-[#7A6E64] dark:text-[#9E8F84] mt-1">Property Insured</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-display font-bold text-[#E5B83C]">40+</p>
+                            <p class="text-xs uppercase tracking-wider font-semibold text-[#7A6E64] dark:text-[#9E8F84] mt-1">Global Carrier Partners</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Image -->
+                <div class="img-frame h-[400px] lg:h-[550px] w-full">
+                    <img src="assets/a.jpg" alt="SecureBiz commercial insurance brokers in a meeting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== MISSION & VISION ======== -->
+    <section class="py-20 lg:py-28 bg-[#F8F0EB] dark:bg-[#25201C]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Mission -->
+                <div class="bg-white dark:bg-[#2A2420] p-8 sm:p-10 rounded-3xl border border-[#E5D9D0] dark:border-[#3D352E] shadow-sm relative overflow-hidden group hover:border-[#E5B83C] transition-colors duration-300">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-bullseye text-8xl text-[#E5B83C]"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-[#FDF3D6] dark:bg-[#3D352E]">
+                        <i class="fas fa-bullseye text-2xl text-[#E5B83C]"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-[#1E1A17] dark:text-white mb-3">Our Mission</h3>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-sm sm:text-base leading-relaxed relative z-10">
+                        To provide institutional-grade property insurance solutions with the personal service of a boutique firm. We exist to protect commercial real estate investments from catastrophic loss, ensuring our clients can rebuild faster, recover revenues, and fulfill their fiduciary duties to investors and lenders.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="bg-white dark:bg-[#2A2420] p-8 sm:p-10 rounded-3xl border border-[#E5D9D0] dark:border-[#3D352E] shadow-sm relative overflow-hidden group hover:border-[#E5B83C] transition-colors duration-300">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i class="fas fa-eye text-8xl text-[#E5B83C]"></i>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-[#FDF3D6] dark:bg-[#3D352E]">
+                        <i class="fas fa-eye text-2xl text-[#E5B83C]"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-[#1E1A17] dark:text-white mb-3">Our Vision</h3>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-sm sm:text-base leading-relaxed relative z-10">
+                        To be the most trusted independent brokerage for commercial property risk in North America—known for our forensic valuation accuracy, proactive claims advocacy, and ability to structure complex layered towers for high-hazard coastal, seismic, and wildfire exposures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== OUR INSURANCE EXPERTISE (3 Images) ======== -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#1A1614]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Our Leadership</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-5">
+                    Decades of <span class="text-[#E5B83C]">Insurance Expertise</span>
+                </h2>
+                <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base">
+                    Our leadership team brings a combined 75+ years of experience across underwriting, brokerage, and claims management.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="card-design p-7 sm:p-8 text-center group flex flex-col items-center">
+                    <div class="w-32 h-32 sm:w-36 sm:h-36 mx-auto rounded-full overflow-hidden mb-5 border-4 border-[#FDF3D6] dark:border-[#3D352E] shadow-md shrink-0">
+                        <img src="assets/avatar.jpg" alt="Jameson Clarke" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-[#1E1A17] dark:text-white mb-1">Jameson Clarke</h3>
+                    <p class="text-xs font-bold text-[#E5B83C] uppercase tracking-widest mb-3">Founder & Managing Partner</p>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        Former Lead Property Underwriter at AIG. Specializes in catastrophe-exposed real estate and layered property towers.
+                    </p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="card-design p-7 sm:p-8 text-center group flex flex-col items-center">
+                    <div class="w-32 h-32 sm:w-36 sm:h-36 mx-auto rounded-full overflow-hidden mb-5 border-4 border-[#FDF3D6] dark:border-[#3D352E] shadow-md shrink-0">
+                        <img src="assets/avatar-rachel.jpg" alt="Sarah Jenkins" class="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-[#1E1A17] dark:text-white mb-1">Sarah Jenkins</h3>
+                    <p class="text-xs font-bold text-[#E5B83C] uppercase tracking-widest mb-3">Director of Claims Advocacy</p>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        Certified Claims Professional (CPP) with 20 years of experience negotiating complex commercial property settlements.
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="card-design p-7 sm:p-8 text-center group flex flex-col items-center">
+                    <div class="w-32 h-32 sm:w-36 sm:h-36 mx-auto rounded-full overflow-hidden mb-5 border-4 border-[#FDF3D6] dark:border-[#3D352E] shadow-md shrink-0">
+                        <img src="assets/avatar-david.jpg" alt="David Chen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-[#1E1A17] dark:text-white mb-1">David Chen</h3>
+                    <p class="text-xs font-bold text-[#E5B83C] uppercase tracking-widest mb-3">Senior Risk Engineer</p>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        Leads our COPE data audits and replacement cost valuations. Former loss control consultant for FM Global.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== OUR TRUSTED INSURANCE PARTNERS ======== -->
+    <section class="py-20 lg:py-28 bg-[#F8F0EB] dark:bg-[#25201C]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Carrier Relationships</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-5">
+                    Our Trusted <span class="text-[#E5B83C]">Insurance Partners</span>
+                </h2>
+                <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base">
+                    We maintain direct appointments with the world's leading commercial property carriers, ensuring unmatched capacity and financial security for your portfolio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <!-- Partner 1 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">AIG</span>
+                </div>
+                <!-- Partner 2 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Chubb</span>
+                </div>
+                <!-- Partner 3 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Travelers</span>
+                </div>
+                <!-- Partner 4 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Liberty Mutual</span>
+                </div>
+                <!-- Partner 5 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Zurich</span>
+                </div>
+                <!-- Partner 6 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Hartford</span>
+                </div>
+                <!-- Partner 7 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Beazley</span>
+                </div>
+                <!-- Partner 8 -->
+                <div class="bg-white dark:bg-[#1A1614] rounded-xl flex items-center justify-center p-6 h-24 border border-[#E5D9D0] dark:border-[#3D352E] hover:border-[#E5B83C] transition-colors group shadow-sm">
+                    <span class="font-display text-xl font-bold text-[#3D352E] dark:text-[#CEC3BA] group-hover:text-[#E5B83C] transition-colors">Sompo</span>
+                </div>
+            </div>
+            <p class="text-center text-sm text-[#7A6E64] dark:text-[#9E8F84] mt-8 italic">
+                *Carrier list is representative of our market access. Actual carrier availability depends on specific property risk characteristics.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======== WHY BUSINESSES TRUST US ======== -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#1A1614]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">The SecureBiz Advantage</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-5">
+                    Why Businesses <span class="text-[#E5B83C]">Trust Us</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Trust Point 1 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C]">
+                    <i class="fas fa-search-dollar text-3xl text-[#E5B83C] mb-4"></i>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2">Forensic Valuations</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        We don't guess replacement costs. We utilize proprietary valuation software to ensure your coinsurance penalties are eliminated.
+                    </p>
+                </div>
+                <!-- Trust Point 2 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C]">
+                    <i class="fas fa-hand-holding-usd text-3xl text-[#E5B83C] mb-4"></i>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2">Lender Compliance</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        We speak the language of your bank. We review all mortgagee clauses, loss payee endorsements, and loan covenants before binding.
+                    </p>
+                </div>
+                <!-- Trust Point 3 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C]">
+                    <i class="fas fa-clock text-3xl text-[#E5B83C] mb-4"></i>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2">24/7 Claims Advocacy</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        When a fire or storm hits, our claims team is on-site to document damage and advocate for maximum recovery—not the carrier's minimum.
+                    </p>
+                </div>
+                <!-- Trust Point 4 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C]">
+                    <i class="fas fa-file-signature text-3xl text-[#E5B83C] mb-4"></i>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2">Tailored Manuscripts</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                        We don't accept off-the-shelf policies. We negotiate specific endorsements for flood sub-limits, ordinance of law, and equipment breakdown.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-16 text-center">
+                <a href="contact.html" class="btn-primary-design px-10 py-4 rounded-full font-bold inline-flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fas fa-calendar-check"></i> Request a Portfolio Review
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="bg-white dark:bg-[#1A1614] text-[#1E1A17] dark:text-white pt-16 pb-8 border-t-4 border-[#E5B83C] transition-colors duration-300">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
+                <!-- Col 1: Brand & Description (4 cols on lg) -->
+                <div class="text-center md:text-start lg:col-span-4">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <svg class="w-9 h-9 md:w-10 md:h-10 text-[#E5B83C] hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z" stroke="currentColor" stroke-width="5" fill="currentColor" fill-opacity="0.15"/>
+                            <path d="M38 68 V44 H62 V68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M44 50 H46 M54 50 H56 M44 58 H46 M54 58 H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 30 L64 42 H36 Z" fill="currentColor"/>
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-[#1E1A17] dark:text-white leading-tight">Secure<span class="text-[#E5B83C]">Biz</span></span>
+                            <span class="text-[9px] uppercase tracking-wider font-semibold text-[#7A6E64] dark:text-[#9E8F84]">Property Insurance</span>
+                        </div>
+                    </div>
+                    <p class="mb-5 text-[#3D352E] dark:text-[#CEC3BA] text-sm leading-relaxed max-w-sm mx-auto md:mx-0">Commercial Property Insurance Broker. Safeguarding corporate real estate, industrial infrastructure, and commercial asset portfolios nationwide.</p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-design"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon-design"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon-design"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-design"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links (2 cols on lg) -->
+                <div class="text-center md:text-start lg:col-span-2">
+                    <h4 class="text-[#1E1A17] dark:text-[#E5B83C] font-bold text-base mb-5 uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Home</a></li>
+                        <li><a href="home2.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Home 2</a></li>
+                        <li><a href="about.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">About</a></li>
+                        <li><a href="services.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Services</a></li>
+                        <li><a href="claims.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Claims Help</a></li>
+                        <li><a href="contact.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Portals (2 cols on lg) -->
+                <div class="text-center md:text-start lg:col-span-2">
+                    <h4 class="text-[#1E1A17] dark:text-[#E5B83C] font-bold text-base mb-5 uppercase tracking-wider">Portals</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="admin.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Admin Dashboard</a></li>
+                        <li><a href="customer.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Customer Portal</a></li>
+                        <li><a href="login.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Sign In</a></li>
+                        <li><a href="signup.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Sign Up</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Get in Touch (4 cols on lg -> ample width so text never chops!) -->
+                <div class="text-center md:text-start lg:col-span-4">
+                    <h4 class="text-[#1E1A17] dark:text-[#E5B83C] font-bold text-base mb-5 uppercase tracking-wider">Get in Touch</h4>
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex justify-center md:justify-start items-start gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-map-pin text-[#E5B83C] mt-1 shrink-0"></i>
+                            <span>120 Wall Street, 28th Floor<br class="hidden sm:inline" />New York, NY 10005</span>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-phone text-[#E5B83C] shrink-0"></i>
+                            <span>(800) 555-7328 / (800) 555-SECURE</span>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-envelope text-[#E5B83C] shrink-0"></i>
+                            <a href="mailto:underwriting@securebizbroker.com" class="hover:text-[#E5B83C] transition break-all">underwriting@securebizbroker.com</a>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-clock text-[#E5B83C] shrink-0"></i>
+                            <span>Mon–Fri 8am – 7pm EST &bull; 24/7 Claims</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-[#E5D9D0] dark:border-[#3D352E] text-center text-sm text-[#7A6E64] dark:text-[#9E8F84]">
+                <p>&copy; 2026 SecureBiz Commercial Property Insurance Brokers LLC. <i class="fas fa-shield-alt text-[#E5B83C] mx-1"></i> Protecting business assets nationwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======== SCRIPTS ======== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => {
+                btn?.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            // RTL
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                if (isRTL === 'rtl' || isRTL === true) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); } 
+                else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+            }
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+            else document.documentElement.setAttribute('dir', 'ltr');
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+                });
+            }
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            if (mobileRtlBtn) {
+                mobileRtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+                });
+            }
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

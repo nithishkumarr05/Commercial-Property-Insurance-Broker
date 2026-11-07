@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claims Help · SecureBiz — Commercial Property Insurance Broker</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Cpath d='M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z' stroke='%23E5B83C' stroke-width='6' fill='%23E5B83C' fill-opacity='0.15'/%3E%3Cpath d='M38 68 V44 H62 V68' stroke='%23E5B83C' stroke-width='4'/%3E%3Cpath d='M50 30 L64 42 H36 Z' fill='%23E5B83C'/%3E%3C/svg%3E" />
+
+    <!-- Tailwind CSS -->
+        <script src="tailwind.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontWeight: { bold: '600', extrabold: '700', semibold: '550' },
+                    colors: {
+                        brand: {
+                            primary: '#1E1A17',
+                            secondary: '#3D352E',
+                            muted: '#7A6E64',
+                            border: '#E5D9D0',
+                            accent: '#E5B83C',
+                            'accent-dark': '#C99E2E',
+                            'accent-light': '#FDF3D6',
+                            bg: '#FCF8F5',
+                            'bg-soft': '#F8F0EB',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+    html, body { overflow-x: hidden; max-width: 100%; }
+        body { background-color: #FCF8F5; color: #1E1A17; font-family: 'Inter', system-ui, sans-serif; }
+        .dark body { background-color: #1A1614; color: #F8F0EB; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 600 !important; }
+        
+        /* Enhanced contrast overrides */
+        html:not(.dark) .text-brand-muted { color: #3D352E !important; }
+        html:not(.dark) .text-brand-secondary { color: #1E1A17 !important; }
+        html:not(.dark) .card-design p { color: #3D352E; }
+
+        .nav-link { position: relative; font-weight: 500; color: #1E1A17; transition: color 0.3s; }
+        .dark .nav-link { color: #F8F0EB; }
+        .nav-link:hover { color: #E5B83C; }
+        .nav-link.active { color: #E5B83C !important; }
+        
+        .dropdown-design { position: relative; }
+        .dropdown-design-menu {
+            position: absolute; top: 100%; left: 0; min-width: 200px; background: #FFFFFF;
+            border-radius: 18px; padding: 0.5rem 0; box-shadow: 0 18px 32px rgba(0,0,0,0.06);
+            opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.25s ease;
+            z-index: 1000; border: 1px solid #E5D9D0;
+        }
+        .dark .dropdown-design-menu { background: #2A2420; border-color: #3D352E; }
+        .dropdown-design:hover .dropdown-design-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-item {
+            display: flex; align-items: center; padding: 0.6rem 1.4rem; transition: all 0.2s;
+            color: #1E1A17;
+        }
+        .dark .dropdown-item { color: #F8F0EB; }
+        .dropdown-item:hover { background-color: #F8F0EB; color: #1E1A17; padding-left: 1.7rem; }
+        .dropdown-item i { margin-right: 0.75rem; width: 20px; }
+        
+        .mobile-menu-design {
+            background: #FFFFFF; max-height: 0; overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+        .dark .mobile-menu-design { background: #2A2420; }
+        .mobile-menu-design.open { max-height: 80vh; overflow-y: auto; scrollbar-width: none; }
+        .mobile-menu-design.open::-webkit-scrollbar { display: none; }
+
+        .social-icon-design {
+            width: 38px; height: 38px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background-color: #F8F0EB; color: #1E1A17; transition: all 0.3s;
+        }
+        .social-icon-design:hover { background-color: #E5B83C; color: #1E1A17; transform: translateY(-3px); }
+        .dark .social-icon-design { background-color: #2A2420; color: #F8F0EB; }
+        .dark .social-icon-design:hover { background-color: #E5B83C; color: #1E1A17; }
+
+        .card-design {
+            background: #FFFFFF; border-radius: 28px; transition: all 0.3s ease;
+            border: 1px solid #E5D9D0; box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+        }
+        .dark .card-design { background: #2A2420; border-color: #3D352E; }
+        .card-design:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -8px rgba(229,184,60,0.2);
+            border-color: #E5B83C;
+        }
+        
+        .btn-primary-design {
+            background-color: #1E1A17; color: #FCF8F5; font-weight: 600;
+            border-radius: 60px; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .btn-primary-design:hover {
+            background-color: #3D352E; transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(229,184,60,0.3); color: #FCF8F5;
+        }
+        .dark .btn-primary-design { background-color: #FCF8F5; color: #1E1A17; }
+        .dark .btn-primary-design:hover { background-color: #FDF3D6; color: #1E1A17; }
+        
+        .btn-outline-design {
+            border: 1.5px solid #1E1A17; color: #1E1A17; background: transparent;
+            border-radius: 60px; font-weight: 500; transition: all 0.3s;
+        }
+        .btn-outline-design:hover { background-color: #1E1A17; color: #FCF8F5; transform: translateY(-2px); }
+        .dark .btn-outline-design { border-color: #F8F0EB; color: #F8F0EB; }
+        .dark .btn-outline-design:hover { background-color: #F8F0EB; color: #1E1A17; }
+
+        .floating-particle { position: fixed; pointer-events: none; z-index: 0; opacity: 0.1; font-size: 24px; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @media (max-width: 768px) { .floating-particle { display: none; } }
+
+        .img-frame { border-radius: 2rem; overflow: hidden; box-shadow: 0 25px 50px -20px rgba(15,23,42,0.3); }
+        .img-frame img { transition: transform 0.7s ease; width: 100%; height: 100%; object-fit: cover; }
+        .img-frame:hover img { transform: scale(1.03); }
+
+        /* FAQ Accordion */
+        .faq-item { border-bottom: 1px solid #E5D9D0; padding: 1.4rem 0; }
+        .dark .faq-item { border-color: #3D352E; }
+        .faq-item:first-child { padding-top: 0.5rem; }
+        .faq-item:last-child { border-bottom: none; padding-bottom: 0.5rem; }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; font-weight: 550; font-size: 1.05rem;
+            color: #1E1A17; transition: color 0.2s;
+        }
+        .dark .faq-question { color: #F8F0EB; }
+        .faq-question:hover { color: #E5B83C; }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.3s ease;
+            color: #3D352E; font-size: 0.95rem; line-height: 1.65;
+        }
+        .dark .faq-answer { color: #CEC3BA; }
+        .faq-item.open .faq-answer { max-height: 320px; padding-top: 0.85rem; }
+        .faq-item.open .faq-question i { transform: rotate(180deg); }
+        .faq-question i { transition: transform 0.3s; color: #E5B83C; }
+
+        /* Claim Progress Tracker */
+        .claim-step { position: relative; padding-left: 2rem; padding-bottom: 2rem; }
+        .claim-step::before {
+            content: ''; position: absolute; left: 7px; top: 24px; bottom: 0;
+            width: 2px; background: #E5D9D0;
+        }
+        .dark .claim-step::before { background: #3D352E; }
+        .claim-step:last-child::before { display: none; }
+        .claim-step-dot {
+            position: absolute; left: 0; top: 2px; width: 16px; height: 16px;
+            border-radius: 50%; background: #E5B83C; border: 3px solid #FFFFFF;
+            box-shadow: 0 0 0 2px #E5B83C; z-index: 2;
+        }
+        .dark .claim-step-dot { border-color: #2A2420; }
+        .claim-step.pending .claim-step-dot { background: #E5D9D0; box-shadow: 0 0 0 2px #E5D9D0; }
+        .dark .claim-step.pending .claim-step-dot { background: #3D352E; box-shadow: 0 0 0 2px #3D352E; }
+    </style>
+</head>
+
+<body class="antialiased warm-pattern">
+
+    <!-- Floating particles -->
+    <div class="floating-particle left-[5%] top-[15%]">🛡️</div>
+    <div class="floating-particle right-[8%] top-[25%]" style="animation-delay: 2s;">📄</div>
+    <div class="floating-particle left-[10%] bottom-[20%]" style="animation-delay: 4s;">🤝</div>
+    <div class="floating-particle right-[12%] bottom-[30%]" style="animation-delay: 3s;">🔍</div>
+
+    <!-- ======== NAVIGATION ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#1A1614]/95 backdrop-blur-sm border-b border-[#E5D9D0] dark:border-[#3D352E] shadow-sm">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo -->
+                <a class="flex items-center gap-2 md:gap-3 group shrink-0" href='index.html'>
+                    <svg class="w-9 h-9 md:w-10 md:h-10 text-[#E5B83C] group-hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z" stroke="currentColor" stroke-width="5" fill="currentColor" fill-opacity="0.15"/>
+                        <path d="M38 68 V44 H62 V68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M44 50 H46 M54 50 H56 M44 58 H46 M54 58 H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M50 30 L64 42 H36 Z" fill="currentColor"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-[#1E1A17] dark:text-white leading-tight">Secure<span class="text-[#E5B83C]">Biz</span></span>
+                        <span class="hidden sm:block text-[9px] uppercase tracking-wider font-semibold text-[#7A6E64] dark:text-[#9E8F84]">Property Insurance</span>
+                    </div>
+                </a>
+                <!-- Desktop nav + actions -->
+                <div class="flex items-center gap-3 xl:gap-8 ml-auto rtl:ml-0 rtl:mr-auto">
+                    <div class="hidden xl:flex items-center gap-3 xl:gap-6">
+                        <div class="dropdown-design">
+                            <button class="nav-link font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Home <i class="fas fa-chevron-down text-xs ms-1"></i>
+                            </button>
+                            <div class="dropdown-design-menu">
+                                <a class="dropdown-item font-medium" href="index.html"><i class="fas fa-home text-[#E5B83C]"></i> Home</a>
+                                <a class="dropdown-item font-medium" href="home2.html"><i class="fas fa-home text-[#E5B83C]"></i> Home 2</a>
+                            </div>
+                        </div>
+                        <a class="nav-link hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="about.html">About</a>
+                        <a class="nav-link hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="services.html">Services</a>
+                        <a class="nav-link active hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="claims.html">Claims Help</a>
+                        <a class="nav-link hover:text-[#E5B83C] transition whitespace-nowrap text-sm xl:text-base" href="contact.html">Contact</a>
+                        <div class="dropdown-design">
+                            <button class="nav-link font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Dashboard <i class="fas fa-chevron-down text-xs ms-1"></i>
+                            </button>
+                            <div class="dropdown-design-menu">
+                                <a class="dropdown-item font-medium" href="admin.html"><i class="fas fa-user-shield text-[#E5B83C]"></i> Admin</a>
+                                <a class="dropdown-item font-medium" href="customer.html"><i class="fas fa-user text-[#E5B83C]"></i> Customer</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Desktop actions -->
+                    <div class="hidden xl:flex items-center gap-3 ms-2">
+                        <button id="theme-toggle" class="w-10 h-10 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle" class="w-10 h-10 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] hover:scale-110 transition flex items-center justify-center font-bold text-base">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                        <a href="login.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm bg-[#1E1A17] text-[#FCF8F5] hover:bg-[#3D352E] dark:bg-[#E5B83C] dark:text-[#1E1A17] dark:hover:bg-[#C99E2E] shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group whitespace-nowrap">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right text-xs text-[#E5B83C] dark:text-[#1E1A17] transition-transform duration-200 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                    <!-- Mobile toggle -->
+                    <button id="mobile-toggle" class="xl:hidden w-10 h-10 rounded-full bg-[#E5B83C] text-[#1E1A17] flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="mobile-menu-design xl:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition cursor-pointer dark:text-white dark:hover:bg-[#2A2420]">
+                            <span>Home</span><i id="home-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="index.html"><i class="fas fa-home w-6 text-[#E5B83C]"></i> Home</a>
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="home2.html"><i class="fas fa-home w-6 text-[#E5B83C]"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="services.html">Services</a>
+                    <a class="block py-3 px-4 font-medium text-[#E5B83C] bg-[#F8F0EB] dark:bg-[#2A2420] rounded-xl transition" href="claims.html">Claims Help</a>
+                    <a class="block py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="contact.html">Contact</a>
+                    <div class="py-1">
+                        <button onclick="document.getElementById('dashboard-mobile-drop').classList.toggle('hidden'); document.getElementById('dashboard-mobile-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-3 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition cursor-pointer dark:text-white dark:hover:bg-[#2A2420]">
+                            <span>Dashboard</span><i id="dashboard-mobile-icon" class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="dashboard-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="admin.html"><i class="fas fa-user-shield w-6 text-[#E5B83C]"></i> Admin</a>
+                            <a class="block py-2.5 px-4 font-medium text-[#1E1A17] hover:bg-[#F8F0EB] rounded-xl transition dark:text-white dark:hover:bg-[#2A2420]" href="customer.html"><i class="fas fa-user w-6 text-[#E5B83C]"></i> Customer</a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2.5 pt-5 mt-3 border-t border-[#E5D9D0] dark:border-[#3D352E]">
+                        <a class="inline-flex items-center justify-center gap-2 py-3 px-6 rounded-full font-semibold text-sm bg-[#1E1A17] text-[#FCF8F5] hover:bg-[#3D352E] dark:bg-[#E5B83C] dark:text-[#1E1A17] dark:hover:bg-[#C99E2E] shadow-sm transition-all duration-300 group" href="login.html">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right text-xs text-[#E5B83C] dark:text-[#1E1A17] transition-transform duration-200 group-hover:translate-x-1"></i>
+                        </a>
+                        <div class="flex gap-3 mt-1">
+                            <button id="mobile-theme-toggle" class="flex-1 py-2 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] text-sm font-medium flex items-center gap-2 justify-center"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i> Theme</button>
+                            <button id="mobile-rtl-toggle" class="flex-1 py-2 rounded-full bg-[#FDF3D6] dark:bg-[#3D352E] text-[#1E1A17] dark:text-[#E5B83C] text-sm font-medium flex items-center gap-2 justify-center"><i class="fas fa-exchange-alt"></i> RTL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== HERO — CLAIMS HELP ======== -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-28 bg-[#1E1A17] overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-45"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1E1A17] via-[#1E1A17]/60 to-[#1E1A17]/40"></div>
+        
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center animate-slide-up">
+            <span class="inline-block bg-[#E5B83C]/20 text-[#E5B83C] px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-[#E5B83C]/30">
+                24/7 Claims Support
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                We're Here to Help with <br class="hidden sm:block">
+                <span class="text-[#E5B83C]">Your Claims</span>
+            </h1>
+            <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                When the unexpected happens, our dedicated claims advocacy team is ready to guide you through the process, ensuring you receive the maximum settlement your policy allows.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#file-claim" class="btn-primary-design bg-[#E5B83C] text-[#1E1A17] hover:bg-[#C99E2E] px-8 py-3.5 rounded-full font-bold inline-flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fas fa-file-signature"></i> Report a Claim Now
+                </a>
+                <a href="tel:18005557328" class="px-8 py-3.5 rounded-full border-2 border-white/40 text-white font-semibold text-base hover:bg-white/10 hover:border-[#E5B83C] transition inline-flex items-center justify-center gap-2">
+                    <i class="fas fa-phone text-[#E5B83C]"></i> 24/7 Claims Hotline
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== HOW TO FILE A CLAIM (Single Image) ======== -->
+    <section id="file-claim" class="py-20 lg:py-28 bg-white dark:bg-[#1A1614]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Single Image -->
+                <div class="img-frame h-[400px] lg:h-[550px] w-full order-2 lg:order-1">
+                    <img src="assets/how-to-file-claim.jpg" alt="SecureBiz commercial property claims specialist reviewing loss documentation" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Content -->
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">First Steps</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-6 leading-tight">
+                        How to File an <br>
+                        <span class="text-[#3D352E] dark:text-[#CEC3BA]">Insurance Claim</span>
+                    </h2>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base leading-relaxed mb-8">
+                        Filing a commercial property claim can feel overwhelming. Our team simplifies the process by acting as your advocate from day one. Whether it's a burst pipe, fire damage, or storm-related loss, here is what you need to do immediately.
+                    </p>
+                    
+                    <div class="space-y-5 mb-8">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg bg-[#FDF3D6] dark:bg-[#3D352E] text-[#E5B83C]">
+                                1
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1E1A17] dark:text-white text-base">Mitigate Further Damage</h4>
+                                <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] mt-1">Take reasonable steps to prevent additional loss, such as tarping a roof or shutting off water. Save your receipts for these emergency repairs.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg bg-[#FDF3D6] dark:bg-[#3D352E] text-[#E5B83C]">
+                                2
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1E1A17] dark:text-white text-base">Document Everything</h4>
+                                <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] mt-1">Take clear, time-stamped photos and videos of all damage before any cleanup begins. Do not throw away damaged items until instructed.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg bg-[#FDF3D6] dark:bg-[#3D352E] text-[#E5B83C]">
+                                3
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#1E1A17] dark:text-white text-base">Contact SecureBiz Immediately</h4>
+                                <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] mt-1">Call our 24/7 hotline. We will notify the carrier, dispatch a field adjuster, and assign a dedicated claims advocate to your file.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn-primary-design px-8 py-3.5 rounded-full font-bold inline-flex items-center gap-2">
+                        Start Your Claim <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== STEP-BY-STEP CLAIMS PROCESS ======== -->
+    <section class="py-20 lg:py-28 bg-[#F8F0EB] dark:bg-[#25201C]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Our Process</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-5">
+                    Step-by-Step <span class="text-[#E5B83C]">Claims Process</span>
+                </h2>
+                <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base">
+                    Transparency is key. Here is exactly how we manage your claim from initial notification to final settlement.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+                <!-- Step 1 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C] relative flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-full bg-[#E5B83C] text-[#1E1A17] font-bold text-xl flex items-center justify-center mb-4 shadow-md flex-shrink-0">01</div>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2 md:min-h-[3.5rem] flex items-start">Notification & Assignment</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed flex-grow">
+                        You report the loss. Within 2 hours, we assign a Senior Claims Advocate to your case and notify your carrier.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C] relative flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-full bg-[#E5B83C] text-[#1E1A17] font-bold text-xl flex items-center justify-center mb-4 shadow-md flex-shrink-0">02</div>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2 md:min-h-[3.5rem] flex items-start">Field Investigation</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed flex-grow">
+                        We meet the adjuster on-site to ensure all damages are documented accurately and nothing is overlooked.
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C] relative flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-full bg-[#E5B83C] text-[#1E1A17] font-bold text-xl flex items-center justify-center mb-4 shadow-md flex-shrink-0">03</div>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2 md:min-h-[3.5rem] flex items-start">Valuation & Negotiation</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed flex-grow">
+                        We review the carrier's estimate against our own forensic valuation. We negotiate to close any coverage gaps.
+                    </p>
+                </div>
+                <!-- Step 4 -->
+                <div class="card-design p-6 border-t-4 border-t-[#E5B83C] relative flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-full bg-[#E5B83C] text-[#1E1A17] font-bold text-xl flex items-center justify-center mb-4 shadow-md flex-shrink-0">04</div>
+                    <h3 class="font-bold text-lg text-[#1E1A17] dark:text-white mb-2 md:min-h-[3.5rem] flex items-start">Settlement & Recovery</h3>
+                    <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed flex-grow">
+                        Once agreed, we expedite the payment from the carrier and help you coordinate contractors for rebuild.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== REQUIRED DOCUMENTS & INFORMATION ======== -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#1A1614]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <!-- Left Content -->
+                <div class="lg:col-span-5">
+                    <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Checklist</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-6 leading-tight">
+                        Required Documents <br>
+                        <span class="text-[#3D352E] dark:text-[#CEC3BA]">& Information</span>
+                    </h2>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base leading-relaxed mb-8">
+                        To ensure your claim is processed quickly, please have the following information ready when you contact our team.
+                    </p>
+                    <div class="bg-[#F8F0EB] dark:bg-[#25201C] rounded-2xl p-6 border border-[#E5D9D0] dark:border-[#3D352E]">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fas fa-lightbulb text-2xl text-[#E5B83C]"></i>
+                            <h4 class="font-bold text-[#1E1A17] dark:text-white">Pro Tip</h4>
+                        </div>
+                        <p class="text-sm text-[#3D352E] dark:text-[#CEC3BA] leading-relaxed">
+                            Do not sign any contracts with restoration companies before speaking with us. We can help you vet contractors and ensure pricing is fair and aligned with your policy limits.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Checklist -->
+                <div class="lg:col-span-7">
+                    <div class="bg-[#F8F0EB] dark:bg-[#25201C] rounded-3xl p-6 sm:p-8 border border-[#E5D9D0] dark:border-[#3D352E]">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Item 1 -->
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E5B83C] mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1A17] dark:text-white text-sm">Policy Number</h4>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">Your current policy schedule or declarations page.</p>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E5B83C] mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1A17] dark:text-white text-sm">Date & Time of Loss</h4>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">When the event occurred that caused the damage.</p>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E5B83C] mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1A17] dark:text-white text-sm">Photos & Videos</h4>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">Clear, well-lit images of all damaged areas before cleanup.</p>
+                                </div>
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E5B83C] mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1A17] dark:text-white text-sm">Proof of Ownership</h4>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">Receipts, inventory lists, or purchase orders for damaged items.</p>
+                                </div>
+                            </div>
+                            <!-- Item 5 -->
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E5B83C] mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1A17] dark:text-white text-sm">Police / Fire Report</h4>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">If applicable, provide the official report number and copy.</p>
+                                </div>
+                            </div>
+                            <!-- Item 6 -->
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-[#E5B83C] mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#1E1A17] dark:text-white text-sm">Emergency Repair Receipts</h4>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">Invoices for any steps taken to secure the property.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-[#E5D9D0] dark:border-[#3D352E] flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <p class="text-sm font-semibold text-[#1E1A17] dark:text-white">Have these ready? Let's get started.</p>
+                            <a href="contact.html" class="btn-primary-design px-6 py-2.5 rounded-full text-sm font-bold">
+                                Submit Documents
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== TRACK YOUR CLAIM STATUS ======== -->
+    <section class="py-20 lg:py-28 bg-[#F8F0EB] dark:bg-[#25201C]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-[#2A2420] rounded-3xl border border-[#E5D9D0] dark:border-[#3D352E] shadow-xl overflow-hidden">
+                <div class="grid md:grid-cols-12">
+                    <!-- Left Info -->
+                    <div class="md:col-span-5 bg-[#1E1A17] p-8 sm:p-10 text-white flex flex-col justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 40%, #E5B83C 0%, transparent 50%);"></div>
+                        <div class="relative z-10">
+                            <i class="fas fa-search-location text-4xl text-[#E5B83C] mb-5"></i>
+                            <h2 class="text-2xl font-display font-bold mb-3">Track Your Claim</h2>
+                            <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                                Enter your claim number and the email address associated with your policy to see real-time updates.
+                            </p>
+                            <div class="flex items-center gap-2 text-xs text-[#E5B83C] font-semibold uppercase tracking-wider">
+                                <i class="fas fa-lock"></i> Secure Portal
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Form/Status -->
+                    <div class="md:col-span-7 p-8 sm:p-10">
+                        <!-- Search Form -->
+                        <div id="claim-search-form">
+                            <form onsubmit="event.preventDefault(); document.getElementById('claim-search-form').classList.add('hidden'); document.getElementById('claim-status-result').classList.remove('hidden');">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-wider text-[#7A6E64] dark:text-[#9E8F84] mb-2">Claim Number</label>
+                                        <input type="text" placeholder="e.g., CLM-893021" required class="w-full px-4 py-3 rounded-xl border border-[#E5D9D0] dark:border-[#3D352E] bg-[#FCF8F5] dark:bg-[#1A1614] text-[#1E1A17] dark:text-white focus:outline-none focus:border-[#E5B83C] transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-wider text-[#7A6E64] dark:text-[#9E8F84] mb-2">Email Address</label>
+                                        <input type="email" placeholder="you@company.com" required class="w-full px-4 py-3 rounded-xl border border-[#E5D9D0] dark:border-[#3D352E] bg-[#FCF8F5] dark:bg-[#1A1614] text-[#1E1A17] dark:text-white focus:outline-none focus:border-[#E5B83C] transition">
+                                    </div>
+                                    <button type="submit" class="btn-primary-design w-full py-3.5 rounded-xl font-bold text-sm mt-2">
+                                        <i class="fas fa-search mr-2"></i> Track Status
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Status Result (Hidden by default) -->
+                        <div id="claim-status-result" class="hidden">
+                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#E5D9D0] dark:border-[#3D352E]">
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-wider text-[#7A6E64] dark:text-[#9E8F84]">Claim #CLM-893021</p>
+                                    <p class="font-bold text-[#1E1A17] dark:text-white">Water Damage - 120 Wall St.</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#E5B83C]/20 text-[#C99E2E] border border-[#E5B83C]/30 whitespace-nowrap inline-flex items-center">In Progress</span>
+                            </div>
+
+                            <div class="relative">
+                                <!-- Step 1 -->
+                                <div class="claim-step">
+                                    <div class="claim-step-dot"></div>
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-sm text-[#1E1A17] dark:text-white">Claim Filed & Assigned</h4>
+                                        <span class="text-xs text-[#7A6E64] dark:text-[#9E8F84]">May 12, 2026</span>
+                                    </div>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">Adjuster Sarah Jenkins assigned to your case.</p>
+                                </div>
+                                <!-- Step 2 -->
+                                <div class="claim-step">
+                                    <div class="claim-step-dot"></div>
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-sm text-[#1E1A17] dark:text-white">Site Inspection Completed</h4>
+                                        <span class="text-xs text-[#7A6E64] dark:text-[#9E8F84]">May 15, 2026</span>
+                                    </div>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">All damages documented. Carrier adjuster report received.</p>
+                                </div>
+                                <!-- Step 3 -->
+                                <div class="claim-step">
+                                    <div class="claim-step-dot"></div>
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-sm text-[#E5B83C]">Estimate Under Review</h4>
+                                        <span class="text-xs text-[#E5B83C]">Current Stage</span>
+                                    </div>
+                                    <p class="text-xs text-[#3D352E] dark:text-[#CEC3BA] mt-1">Our team is reviewing the contractor estimate against policy limits.</p>
+                                </div>
+                                <!-- Step 4 -->
+                                <div class="claim-step pending">
+                                    <div class="claim-step-dot"></div>
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-sm text-[#7A6E64] dark:text-[#9E8F84]">Final Settlement & Payment</h4>
+                                        <span class="text-xs text-[#7A6E64] dark:text-[#9E8F84]">Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="document.getElementById('claim-status-result').classList.add('hidden'); document.getElementById('claim-search-form').classList.remove('hidden');" class="text-xs font-semibold text-[#E5B83C] mt-4 hover:underline">
+                                <i class="fas fa-arrow-left mr-1"></i> Search another claim
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FREQUENTLY ASKED QUESTIONS ======== -->
+    <section class="py-20 lg:py-28 bg-white dark:bg-[#1A1614]">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Left Header -->
+                <div class="lg:col-span-4 lg:sticky lg:top-28 self-start">
+                    <span class="text-[#E5B83C] text-xs font-bold uppercase tracking-[0.2em] block mb-3">Support</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#1E1A17] dark:text-white mb-5 leading-tight">
+                        Frequently <br>
+                        <span class="text-[#3D352E] dark:text-[#CEC3BA]">Asked Questions</span>
+                    </h2>
+                    <p class="text-[#3D352E] dark:text-[#CEC3BA] text-base leading-relaxed mb-6">
+                        Find quick answers to common questions about the commercial property claims process.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 text-sm font-bold text-[#E5B83C] hover:text-[#C99E2E] transition">
+                        Contact our claims team <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Right Accordion -->
+                <div class="lg:col-span-8">
+                    <div class="space-y-1">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item open">
+                            <div class="faq-question">
+                                <span>How long does a commercial property claim take?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>The timeline varies based on complexity. Simple claims (e.g., minor water damage) can settle in 2-4 weeks. Complex catastrophic losses (e.g., fire, hurricane) can take 6-12 months to fully resolve, especially if business interruption coverage is involved.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What is the difference between ACV and RCV?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>ACV (Actual Cash Value) pays replacement cost minus depreciation. RCV (Replacement Cost Value) pays the full cost to replace the damaged property with new, similar items, without deducting depreciation. We highly recommend RCV policies for commercial real estate.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Does my policy cover mold remediation?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standard policies often have limited mold coverage (e.g., $10,000). If mold results from a covered peril (like a burst pipe), the remediation may be covered up to the sub-limit. We can help you secure a mold endorsement to increase this limit.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Can I choose my own contractor for repairs?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you generally have the right to choose your contractor. However, the insurance carrier will only pay the "reasonable and customary" market rate for repairs. Our claims advocates help negotiate between your contractor and the adjuster to ensure fair pricing.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ 5 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What if my claim is denied?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>If a claim is denied, we review the carrier's rationale against the specific policy language. If we believe the denial is unjustified, we can file a formal appeal or, in some cases, engage a public adjuster or legal counsel to dispute the decision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Band -->
+            <div class="mt-16 rounded-3xl bg-[#1E1A17] p-8 sm:p-12 text-center relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 40%, #E5B83C 0%, transparent 50%);"></div>
+                <div class="relative z-10">
+                    <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-white font-bold mb-3">Need Immediate Claims Assistance?</h3>
+                    <p class="text-white/70 text-sm sm:text-base max-w-lg mx-auto mb-8">Our 24/7 claims hotline connects you directly with a senior advocate, not a call center.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="tel:18005557328" class="btn-primary-design px-8 py-3.5 rounded-full text-sm font-bold bg-[#E5B83C] text-[#1E1A17] hover:bg-[#C99E2E]">
+                            <i class="fas fa-phone mr-2"></i> (800) 555-7328
+                        </a>
+                        <a href="contact.html" class="px-8 py-3.5 rounded-full border-2 border-white/40 text-white font-semibold text-sm hover:bg-white/10 hover:border-[#E5B83C] transition">
+                            <i class="fas fa-envelope mr-2"></i> Email Claims Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="bg-white dark:bg-[#1A1614] text-[#1E1A17] dark:text-white pt-16 pb-8 border-t-4 border-[#E5B83C] transition-colors duration-300">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
+                <!-- Col 1: Brand & Description (4 cols on lg) -->
+                <div class="text-center md:text-start lg:col-span-4">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <svg class="w-9 h-9 md:w-10 md:h-10 text-[#E5B83C] hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 10 L82 24 V52 C82 72 50 90 50 90 C50 90 18 72 18 52 V24 L50 10 Z" stroke="currentColor" stroke-width="5" fill="currentColor" fill-opacity="0.15"/>
+                            <path d="M38 68 V44 H62 V68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M44 50 H46 M54 50 H56 M44 58 H46 M54 58 H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 30 L64 42 H36 Z" fill="currentColor"/>
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="text-lg md:text-2xl font-display font-extrabold tracking-tight text-[#1E1A17] dark:text-white leading-tight">Secure<span class="text-[#E5B83C]">Biz</span></span>
+                            <span class="text-[9px] uppercase tracking-wider font-semibold text-[#7A6E64] dark:text-[#9E8F84]">Property Insurance</span>
+                        </div>
+                    </div>
+                    <p class="mb-5 text-[#3D352E] dark:text-[#CEC3BA] text-sm leading-relaxed max-w-sm mx-auto md:mx-0">Commercial Property Insurance Broker. Safeguarding corporate real estate, industrial infrastructure, and commercial asset portfolios nationwide.</p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-design"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon-design"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon-design"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-design"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links (2 cols on lg) -->
+                <div class="text-center md:text-start lg:col-span-2">
+                    <h4 class="text-[#1E1A17] dark:text-[#E5B83C] font-bold text-base mb-5 uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Home</a></li>
+                        <li><a href="home2.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Home 2</a></li>
+                        <li><a href="about.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">About</a></li>
+                        <li><a href="services.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Services</a></li>
+                        <li><a href="claims.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Claims Help</a></li>
+                        <li><a href="contact.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Portals (2 cols on lg) -->
+                <div class="text-center md:text-start lg:col-span-2">
+                    <h4 class="text-[#1E1A17] dark:text-[#E5B83C] font-bold text-base mb-5 uppercase tracking-wider">Portals</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="admin.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Admin Dashboard</a></li>
+                        <li><a href="customer.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Customer Portal</a></li>
+                        <li><a href="login.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Sign In</a></li>
+                        <li><a href="signup.html" class="hover:text-[#E5B83C] transition block text-[#3D352E] dark:text-[#CEC3BA]">Sign Up</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Get in Touch (4 cols on lg -> ample width so text never chops!) -->
+                <div class="text-center md:text-start lg:col-span-4">
+                    <h4 class="text-[#1E1A17] dark:text-[#E5B83C] font-bold text-base mb-5 uppercase tracking-wider">Get in Touch</h4>
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex justify-center md:justify-start items-start gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-map-pin text-[#E5B83C] mt-1 shrink-0"></i>
+                            <span>120 Wall Street, 28th Floor<br class="hidden sm:inline" />New York, NY 10005</span>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-phone text-[#E5B83C] shrink-0"></i>
+                            <span>(800) 555-7328 / (800) 555-SECURE</span>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-envelope text-[#E5B83C] shrink-0"></i>
+                            <a href="mailto:underwriting@securebizbroker.com" class="hover:text-[#E5B83C] transition break-all">underwriting@securebizbroker.com</a>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3 text-[#3D352E] dark:text-[#CEC3BA]">
+                            <i class="fas fa-clock text-[#E5B83C] shrink-0"></i>
+                            <span>Mon–Fri 8am – 7pm EST &bull; 24/7 Claims</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-[#E5D9D0] dark:border-[#3D352E] text-center text-sm text-[#7A6E64] dark:text-[#9E8F84]">
+                <p>&copy; 2026 SecureBiz Commercial Property Insurance Brokers LLC. <i class="fas fa-shield-alt text-[#E5B83C] mx-1"></i> Protecting business assets nationwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======== SCRIPTS ======== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => {
+                btn?.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            // RTL
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                if (isRTL === 'rtl' || isRTL === true) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); } 
+                else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+            }
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+            else document.documentElement.setAttribute('dir', 'ltr');
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+                });
+            }
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            if (mobileRtlBtn) {
+                mobileRtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir === 'rtl' ? 'ltr' : 'rtl');
+                });
+            }
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question');
+                if (question) {
+                    question.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('open');
+                        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                        if (!isOpen) item.classList.add('open');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
